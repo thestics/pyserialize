@@ -23,7 +23,7 @@ class EncoderDecoderBase:
         if kwargs.get('endpoint', False) is True:
             EncoderDecoderBase.endpoint_subclasses.append(cls)
         # cls.assert_consistency_with_supported_types()
-    #
-    # @classmethod
-    # def assert_consistency_with_supported_types(cls):
-    #     ...
+    
+    @classmethod
+    def assert_consistency_with_supported_types(cls):
+	raise NotImplementedError('TBD')

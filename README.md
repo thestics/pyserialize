@@ -1,4 +1,3 @@
-"""
 Package which implements dataclasses serialization to JSON
 
 Implements the following structure:
