@@ -94,7 +94,7 @@ from serialization.decoder import FieldDecoder
 
 
 encoder_func = tp.Callable[[object], tp.Dict[str, str]]
-encoders = tp.Dict[str, encoder]
+encoders = tp.Dict[str, encoder_func]
 
 
 class Serializable:

@@ -26,4 +26,4 @@ class EncoderDecoderBase:
     
     @classmethod
     def assert_consistency_with_supported_types(cls):
-	raise NotImplementedError('TBD')
+        raise NotImplementedError('TBD')
