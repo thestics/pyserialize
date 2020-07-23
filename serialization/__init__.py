@@ -88,10 +88,9 @@ encoders-decoders only
 import json
 import typing as tp
 
-from serialization.common import EncoderDecoderBase
-from serialization.encoder import FieldEncoder
-from serialization.decoder import FieldDecoder
-
+from serialization.common import EncoderDecoderBase, get_encoder, get_decoder
+from serialization.encoder import *
+from serialization.decoder import *
 
 encoder_func = tp.Callable[[object], tp.Dict[str, str]]
 encoders = tp.Dict[str, encoder_func]
@@ -104,8 +103,8 @@ class Serializable:
     Has to be inherited to support serialization/deserialization
     """
 
-    encoder = FieldEncoder()
-    decoder = FieldDecoder()
+    encoder = get_encoder()
+    decoder = get_decoder()
 
     def encode_attrs(self):
         attrs = {k: self.encoder.encode(v) for k, v in self.__dict__.items()
@@ -139,4 +138,4 @@ def serializable_factory(encoders_dict: encoders,
     raise NotImplementedError('TBD')
 
 
-__all__ = ['FieldEncoder', 'FieldDecoder', 'Serializable', 'EncoderDecoderBase']
+__all__ = ['Serializable', 'EncoderDecoderBase']
